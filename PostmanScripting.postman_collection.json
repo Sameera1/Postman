@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "a094921e-f840-4e66-9753-a4d4c9daccc6",
+		"name": "PostmanScripting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//multiple assertions\r",
+							"pm.test(\"multiple assertions validations\", function (){\r",
+							"    responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.data.id).to.eql(6);\r",
+							"    pm.expect(responseJson.data.email).to.eql(\"tracey.ramos@reqres.in\");\r",
+							"});\r",
+							"\r",
+							"//handling responses that don't pass\r",
+							"pm.test(\"body contains string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"tracey.ramos@reqres.in\");\r",
+							"});\r",
+							"\r",
+							"//many status codes\r",
+							"pm.test(\"the status code\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+							"});\r",
+							"\r",
+							"//testing headers\r",
+							"pm.test(\"content-type header present\", function () {\r",
+							"    pm.response.to.have.header(\"Server\");\r",
+							"});\r",
+							"\r",
+							"//testing header values\r",
+							"pm.test(\"content-type header value\", function () {\r",
+							"   pm.expect(pm.response.headers.get(\"Server\")).to.eql(\"cloudflare\");\r",
+							"});\r",
+							"\r",
+							"//testing cookies\r",
+							"pm.test(\"cookies present\", function () {\r",
+							"   pm.expect(pm.cookies.has(\"hkvh\")).to.be.true;\r",
+							"});\r",
+							"\r",
+							"//testing cookies values\r",
+							"pm.test(\"cookies value test\", function () {\r",
+							"   pm.expect(pm.cookies.get(\"xkjvhkv\")).to.eql(\"hkvh\");\r",
+							"});\r",
+							"\r",
+							"//response time\r",
+							"pm.test(\"response time less than 80ml\", function () {\r",
+							"   pm.expect(pm.response.responseTime).to.be.below(150);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"userid\",6);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/{{userid}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{userid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

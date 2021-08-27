@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "cd2667d2-0803-4c3d-a739-a91f5c3e620f",
+		"name": "Import_Export",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.eu/rest/v2/name/india",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"eu"
+					],
+					"path": [
+						"rest",
+						"v2",
+						"name",
+						"india"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.eu/rest/v2/capital/delhi",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"eu"
+					],
+					"path": [
+						"rest",
+						"v2",
+						"capital",
+						"delhi"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
